@@ -1,6 +1,6 @@
 import pandas as pd
 import pytest
-from etl import extract_data  # adapte l'import
+from ../etl import extract_data  # adapte l'import
 
 
 @pytest.fixture
