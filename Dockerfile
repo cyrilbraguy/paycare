@@ -2,15 +2,16 @@
 FROM python:3.11-slim
 
 # Set the working directory
-WORKDIR /app
+WORKDIR /home
 
 # Copy the current directory contents into the container at /app
-COPY ./etl.py /app/etl.py
-COPY /data /app/data
+COPY ./app /home/app
+COPY /data /home/data
+COPY ./requirements.txt /home/requirements.txt
 
 # Install the Python dependencies
 RUN pip install -r requirements.txt
 
 
 # Run the application
-CMD python /app/etl.py
+CMD python /home/app/etl.py
