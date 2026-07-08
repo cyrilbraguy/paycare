@@ -1,0 +1,48 @@
+name: paycare cyril TP github actions
+
+on: 
+  push:
+    branches: ["main","dev"]
+  workflow_dispatch:
+    
+jobs:
+  # Test API Job 
+  etl1:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Install pytest
+        run: pip install pytest pytest-mock
+
+      - name: run tests
+        run: python pytest tests
+
+
+      - name: docker build image
+        run: docker build -t paycare_cyril .
+
+      - name: docker run
+        run: docker run -rm -v $(pwd)/data:/app/data paycare_cyril
+
+      - name: docker status
+        run: docker ps
+
+      - name: upload_atifacts
+        run: actions/upload-artifacts
+
+      - name: stop container
+        run: | 
+          docker stop paycare_cyril
+          docker rm paycare_cyril
+ 
