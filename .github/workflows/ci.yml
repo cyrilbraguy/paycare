@@ -26,6 +26,8 @@ jobs:
         run: pip install pytest pytest-mock
 
       - name: run tests
+        env: 
+          PYTHONPATH: ${{github.workspace}}  
         run: pytest tests
 
 
