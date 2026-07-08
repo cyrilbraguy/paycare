@@ -26,7 +26,7 @@ jobs:
         run: pip install pytest pytest-mock
 
       - name: run tests
-        run: python pytest tests
+        run: pytest tests
 
 
       - name: docker build image
