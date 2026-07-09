@@ -1,0 +1,6 @@
+id,name,age,city,salary,tax,net_salary
+1,John Doe,28.0,New York,70000,7000.0,63000.0
+2,Jane Smith,34.0,Los Angeles,80000,8000.0,72000.0
+3,Bob Johnson,45.0,Chicago,90000,9000.0,81000.0
+4,Alice Williams,29.0,San Francisco,85000,8500.0,76500.0
+6,Eve Davis,38.0,Boston,95000,9500.0,85500.0

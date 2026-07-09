@@ -1,4 +1,5 @@
 import pandas as pd
+from pathlib import Path
 
 # Step 1: Extract
 def extract_data(file_path):
@@ -48,6 +49,12 @@ def etl_process(input_file, output_file):
             load_data(transformed_data, output_file)
 
 if __name__ == "__main__":
-    input_file = 'input_data.csv'
-    output_file = 'output_data.csv'
+    base_dir = Path(__file__).resolve().parent  # ~/app/
+    data_dir = base_dir.parent / "data"           # ~/data/
+
+    input_file = data_dir / "input_data.csv"
+    output_file = data_dir / "output_data.csv"
+
+    # input_file = '../data/input_data.csv'
+    # output_file = '../data/output_data.csv'
     etl_process(input_file, output_file)
