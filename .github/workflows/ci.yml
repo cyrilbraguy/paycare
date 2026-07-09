@@ -41,7 +41,10 @@ jobs:
         run: docker ps
 
       - name: upload_atifacts
-        run: actions/upload-artifacts
+        uses: actions/upload-artifact@v4   # ✅ uses, et nom singulier "artifact"
+        with:
+          name: my-artifact
+          path: data/output_data.csv
 
       - name: stop container
         run: | 
