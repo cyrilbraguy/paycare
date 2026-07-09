@@ -40,14 +40,8 @@ jobs:
       - name: docker status
         run: docker ps
 
-      - name: upload_atifacts
+      - name: upload_atifact
         uses: actions/upload-artifact@v4   # ✅ uses, et nom singulier "artifact"
         with:
           name: my-artifact
           path: data/output_data.csv
-
-      - name: stop container
-        run: | 
-          docker stop paycare_cyril
-          docker rm paycare_cyril
- 
