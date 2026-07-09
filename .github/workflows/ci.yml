@@ -39,7 +39,7 @@ jobs:
 
       - name: docker status
         run: docker ps
-r
+
       - name: upload_atifacts
         run: actions/upload-artifacts
 
