@@ -35,11 +35,11 @@ jobs:
         run: docker build -t paycare_cyril .
 
       - name: docker run
-        run: docker run -rm -v $(pwd)/data:/home/data paycare_cyril
+        run: docker run --rm -v $(pwd)/data:/home/data paycare_cyril
 
       - name: docker status
         run: docker ps
-
+r
       - name: upload_atifacts
         run: actions/upload-artifacts
 
